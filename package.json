@@ -1,0 +1,29 @@
+{
+  "name": "campus-events-web",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "api": "json-server --watch db.json --port 3000",
+    "build": "vue-tsc --noEmit && vite build",
+    "check": "vue-tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "vue": "^3.5.0",
+    "pinia": "^4.0.3",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.5.0",
+    "@vue/tsconfig": "^0.9.1",
+    "jsdom": "^30.0.1",
+    "typescript": "~6.0.0",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11",
+    "vue-tsc": "^3.3.11",
+    "json-server": "0.17.4"
+  }
+}
