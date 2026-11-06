@@ -1,0 +1,42 @@
+# Open in VS Code with the "REST Client" extension and click "Send Request",
+# or copy the curl equivalents from the handout.
+@api = http://localhost:3000
+
+### List events
+GET {{api}}/events?category=workshop
+
+### One event
+GET {{api}}/events/2
+
+### Create an event
+POST {{api}}/events
+Content-Type: application/json
+
+{
+  "title": "Pitch Night",
+  "category": "social",
+  "startsAt": "2026-12-01T18:00:00.000Z",
+  "location": "Student Hall",
+  "capacity": 50
+}
+
+### Invalid: expect 400 with one message per problem
+POST {{api}}/events
+Content-Type: application/json
+
+{ "title": "Hi", "capacity": 0, "booked": 99 }
+
+### Book 2 seats
+POST {{api}}/events/2/bookings
+Content-Type: application/json
+
+{ "name": "Dara", "email": "dara@example.com", "seats": 2 }
+
+### Too many seats: expect 409
+POST {{api}}/events/2/bookings
+Content-Type: application/json
+
+{ "name": "Dara", "email": "dara@example.com", "seats": 4 }
+
+### Cancel booking 1
+DELETE {{api}}/bookings/1
